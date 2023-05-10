@@ -27,7 +27,7 @@ const App = () => {
   });
   const taille = tracks?.length;
   const AlbumCover = ({track}:{track:Track}) =>  {
-    const src =track.album.images[0].url;
+    const src =track?.album?.images[0].url;
     return (
         <img src={src} style={{ width: 400, height: 400 }} />
     );

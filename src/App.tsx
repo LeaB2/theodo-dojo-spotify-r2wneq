@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchTracks } from './lib/fetchTracks';
-import { SavedTrack } from 'spotify-types';
+import { SavedTrack, Track } from 'spotify-types';
 
 const trackUrls = [
   'https://p.scdn.co/mp3-preview/742294f35af9390e799dd96c633788410a332e52',
@@ -26,7 +26,12 @@ const App = () => {
     queryFn: fetchTracks,
   });
   const taille = tracks?.length;
-
+  const AlbumCover = ({track}:{track:Track}) =>  {
+    const src =track.album.images[0].url;
+    return (
+        <img src={src} style={{ width: 400, height: 400 }} />
+    );
+}
   console.log(taille);
 
   return (
@@ -36,11 +41,14 @@ const App = () => {
         <h1 className="App-title">Bienvenue sur le blind test</h1>
       </header>
       {taille}
+      <p>{tracks?.[trackIndex]?.track.name}</p>
       <div className="App-images"></div>
+      <AlbumCover track={tracks[trackIndex]?.track} />
       <div className="App-buttons"></div>
       <audio src={trackUrls[trackIndex]} autoPlay controls />
       <button onClick={goToNextTrack}>Next track</button>
-      <p>{tracks?.[trackIndex]?.track.name}</p>
+
+      
     </div>
   );
 };

@@ -15,8 +15,6 @@ const goToNextTrack = () => {
   setTrackIndex(trackIndex + 1);
 }
 
-
-
 const App = () => {
   return (
     <div className="App">
@@ -33,6 +31,10 @@ const App = () => {
 </button>
       </div>
       <div className="App-buttons"></div>
+      <audio src={trackUrls[trackIndex]} autoPlay controls />
+<button onClick={goToNextTrack}>
+    Next track
+</button>
     </div>
   );
  

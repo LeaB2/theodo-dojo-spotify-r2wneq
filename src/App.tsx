@@ -15,10 +15,7 @@ const goToNextTrack = () => {
   setTrackIndex(trackIndex + 1);
 }
 
-<audio src={trackUrls[trackIndex]} autoPlay controls />
-<button onClick={goToNextTrack}>
-    Next track
-</button>
+
 
 const App = () => {
   return (
@@ -29,7 +26,11 @@ const App = () => {
       </header>
       <div className="App-images">
         <p>Il va falloir modifier le code pour faire un vrai blind test !</p>
-        <audio src={trackUrls[0]} autoPlay controls />
+    
+        <audio src={trackUrls[trackIndex]} autoPlay controls />
+<button onClick={goToNextTrack}>
+    Next track
+</button>
       </div>
       <div className="App-buttons"></div>
     </div>

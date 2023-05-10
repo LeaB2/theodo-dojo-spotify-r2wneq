@@ -14,5 +14,4 @@ export const fetchTracks = async () => {
   
     return data.items;
   }; 
-  
-};
+
